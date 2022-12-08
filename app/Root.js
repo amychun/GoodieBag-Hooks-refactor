@@ -1,8 +1,9 @@
 import React from "react";
 import Candies from "./components/Candies";
-import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
+import { Router, Routes, Route } from "react-router-dom";
+import Main from "./components/Main";
 
 const Root = () => {
   // const candies = useSelector((state) => state.candies);
@@ -10,15 +11,12 @@ const Root = () => {
 
   return (
     <div>
-      {/* <NavLink to={`/candies`} key={`All Candies: ${candies.id}`}>
-        Goodie Bag
-      </NavLink> */}
-      {/* <Navbar /> */}
-      <main>
-        <h1>Welcome to the Goodie Bag!</h1>
-        <p>What a nice home page for your goodies!</p>
-      </main>
-      <Candies />
+      <Main />
+      <Navbar />
+      <Routes>
+        <Route path="/"></Route>
+        <Route path="/candies" element={<Candies />}></Route>
+      </Routes>
     </div>
   );
 };

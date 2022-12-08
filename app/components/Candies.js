@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchCandies } from "./CandiesSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { SingleCandy } from "./SingleCandy";
 
 const candies = () => {
   const candies = useSelector((state) => state.candies);
