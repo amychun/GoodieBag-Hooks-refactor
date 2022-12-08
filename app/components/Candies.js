@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { fetchCandies } from "./CandiesSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { SingleCandy } from "./SingleCandy";
+import SingleCandy from "./SingleCandy";
+import { NavLink } from "react-router-dom";
 
-const candies = () => {
-  const candies = useSelector((state) => state.candies);
+const Candies = () => {
   const dispatch = useDispatch();
+  const candies = useSelector((state) => state.candies);
 
   useEffect(() => {
     dispatch(fetchCandies());
   }, []);
 
-  //name, description, quantity, imageUrl
   return (
     <div>
       <ul>
         {candies && candies.length
           ? candies.map((candy, idx) => {
               return (
-                <div key={candy.id}>
-                  <li>
-                    <img src={candy.imageUrl} />
-                    <h2>Candy {candy.name}</h2>
-                    <p>Quantity: {candy.quantity}</p>
-                    <p>{candy.description}</p>
-                  </li>
-                </div>
+                <li key={idx}>
+                  <NavLink to={`/candies/${candy.id}`} key={idx}>
+                    {/* <img src={candy.imageUrl} /> */}
+                    <p>{candy.name}</p>
+                  </NavLink>
+                </li>
               );
             })
           : null}
@@ -34,4 +32,4 @@ const candies = () => {
   );
 };
 
-export default candies;
+export default Candies;

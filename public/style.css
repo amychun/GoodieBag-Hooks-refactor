@@ -10,7 +10,7 @@
 
 body::after {
   content: "";
-  background: url('bg.jpg');
+  background: url("bg.jpg");
   opacity: 0.1;
   top: 0;
   left: 0;
@@ -34,4 +34,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.navbar a {
+  margin-right: 10px;
 }

@@ -4,18 +4,17 @@ import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
 import { Router, Routes, Route } from "react-router-dom";
 import Main from "./components/Main";
+import SingleCandy from "./components/SingleCandy";
 
 const Root = () => {
-  // const candies = useSelector((state) => state.candies);
-  // console.log(candies);
-
   return (
     <div>
       <Main />
       <Navbar />
       <Routes>
-        <Route path="/"></Route>
+        <Route path="/*"></Route>
         <Route path="/candies" element={<Candies />}></Route>
+        <Route path="/candies/:id" element={<SingleCandy />}></Route>
       </Routes>
     </div>
   );
